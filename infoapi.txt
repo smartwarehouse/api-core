@@ -1,0 +1,11 @@
+Encryption keys generated successfully.
+Personal access client created successfully.
+Client ID: 3
+Client Secret: dSt3kwZRm8Lc30n6EDzAEx6EqXyDnXcDihYZRAvL
+Password grant client created successfully.
+Client ID: 4
+Client Secret: DI8SYrh9Wb3g9upTP20jRTVHPdil9CGBc1ggec2f
+
+
+https://code.tutsplus.com/id/tutorials/setup-oauth2-server-using-passport-in-laravel--cms-30576
+https://www.codepolitan.com/api-otentikasi-menggunakan-passport-laravel-59fc1153796b9
