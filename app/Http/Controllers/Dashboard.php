@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class Dashboard extends Controller
 {
-    public function userAdd(Request $request)
+    public function userStore(Request $request)
     {
         $data = new User;
         $data->full_name     = $request->full_name;
@@ -28,6 +28,12 @@ class Dashboard extends Controller
     {
         $data=User::all();
         return view('dashboard.user.show',['users' => $data]);
+    }
+
+    public function userCreate()
+    {
+        $data = User::all();
+        return view('dashboard.user.add',['users' => $data]);
     }
 
     public function userDestroy($id)

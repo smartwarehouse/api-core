@@ -15,7 +15,7 @@
      @endif
     <table class="table table-striped">
     <thead>
-    <button class="btn btn-success" type="submit">create </button>
+    <a href="./add/" class="btn btn-success" type="submit">create </a></td>
       <tr>
         <th>ID</th>
         <th>Name</th>

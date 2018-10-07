@@ -15,13 +15,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard/user/create', function () {
+Route::get('/dashboard/user/add', function () {
     return view('dashboard.user.add');
 });
+Route::get('/dashboard/user/add', 'Dashboard@userCreate');
 
-Route::post('/dashboard/user/store', 'Dashboard@userStore');
+Route::get('/dashboard/user/store', 'Dashboard@userStore');
 
 Route::get('/dashboard/user/show', 'Dashboard@userIndex');
+
+Route::post('/dashboard/user/edit/{id}', 'Dashboard@userUpdate');
 
 
 Route::get('/dashboard/edit/{id}', function () {
