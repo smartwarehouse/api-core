@@ -26,17 +26,15 @@
     </thead>
     <tbody>
 
-      @foreach($users as $user)
+      @foreach($users as $data)
       <tr>
-        <td>{{$user['id']}}</td>
-        <td>{{$user['full_name']}}</td>
-        <td>{{$user['email']}}</td>
-        <td>{{$user['phone_number']}}</td>
-          <td><button class="btn btn-info" type="submit">update</button>
-              <a href="./delete/{{$user['id']}}" class="btn btn-danger" type="submit">Delete</a></td>
+        <td>{{$data['id']}}</td>
+        <td>{{$data['full_name']}}</td>
+        <td>{{$data['email']}}</td>
+        <td>{{$data['phone_number']}}</td>
+        <td><a href="./edit/{{$data['id']}}" class="btn btn-info" type="submit">update</a>
+              <a href="./delete/{{$data['id']}}" class="btn btn-danger" type="submit">Delete</a></td>
             <input name="_method" type="hidden" value="DELETE">
-          </form>
-        </td>
       </tr>
       @endforeach
     </tbody>

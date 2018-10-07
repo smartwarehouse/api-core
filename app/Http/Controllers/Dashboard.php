@@ -7,17 +7,7 @@ use Illuminate\Http\Request;
 
 class Dashboard extends Controller
 {
-    public function userStore(Request $request)
-    {
-        $data = new User;
-        $data->full_name     = $request->full_name;
-        $data->email         = $request->email;
-        $data->phone_number  = $request->phone_number;
-        $data->password      = Hash::make($request->password);
-        $data->role          = $request->role;
-        $data->save();
-        return redirect()->route('dashboard.user.add')->with('alert-success','Berhasil Menambahkan Data!');
-    }
+
     public function index()
     {
         $users=User::all();
@@ -32,19 +22,46 @@ class Dashboard extends Controller
 
     public function userCreate()
     {
-        $data = User::all();
-        return view('dashboard.user.add',['users' => $data]);
+        return view('dashboard.user.add');
+    }
+
+    public function userStore(Request $request)
+    {
+        $users = new User;
+        $users->full_name     = $request->full_name;
+        $users->email         = $request->email;
+        $users->phone_number  = $request->phone_number;
+        $users->password      = $request->password;
+        $users->role          = $request->role;
+        $users->save();
+        return redirect('dashboard/user/show');
+    }
+
+    public function userEdit($id)
+    {
+        $users = User::find($id);
+
+        if(!$users)
+            abort(404);
+        return view('dashboard.user.edit',['users' => $users]);
+    }
+
+    public function userUpdate(Request $request, $id)
+    {
+        $users = User::find($id);
+        $users->full_name     = $request->full_name;
+        $users->email         = $request->email;
+        $users->phone_number  = $request->phone_number;
+        //$users->password      = Hash::make($request->password);
+        //$users->role          = $request->role;
+        $users->save();
+        return redirect('dashboard/user/show');
     }
 
     public function userDestroy($id)
     {
-        $result =   User::find($id);
-        if($result){
-            User::find($id)->delete();
-            $data = "delete success";
-        }else{
-            $data = "delete not success";
-        }
-        return view('dashboard.user.destroy',['message' => $data]);
+        $users =   User::find($id);
+        $users->delete();
+        return redirect('dashboard/user/show');
     }
 }
