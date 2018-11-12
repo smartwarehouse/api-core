@@ -1,7 +1,7 @@
 ## Php Api Untuk SmartWarehouse
 
 `
-Project Ini Masih Tahan Pembuatan
+Project Ini Masih Tahan Pembuatan & Repository ini khusus untuk API.
 `
 
 **Software Requirements**
